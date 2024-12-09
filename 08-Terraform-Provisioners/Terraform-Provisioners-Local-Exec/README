@@ -1,0 +1,19 @@
+You can also use local-exec to execute a local script. For example, after creating an EC2 instance, you may want to run a local script that performs some action, like updating a local database or sending a notification.
+
+In this example:
+
+The local-exec provisioner runs a local script (notify.sh) after the EC2 instance is created.
+The script takes the instance’s public IP address as an argument (${self.public_ip}) and logs it to instance_log.txt.
+
+After the instance is created, the local-exec provisioner will execute the notify.sh script, passing the EC2 instance’s public IP as an argument. The script will log the IP in the instance_log.txt file on your local machine.
+
+### Use Cases for local-exec Provisioner:
+Trigger local notifications, like sending an email or a Slack message.
+Execute local scripts that depend on resource information, such as writing data to a database or log file.
+Run configuration management tools locally (Ansible, Chef, etc.) based on newly created resources.
+Summary
+The local-exec provisioner is powerful for tasks that need to be run locally, rather than on the remote resource itself. You can use it for:
+
+Executing local shell commands.
+Running scripts that rely on data from Terraform resources.
+Integrating Terraform with other tools or automation processes on your local machine.
